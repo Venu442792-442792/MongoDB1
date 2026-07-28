@@ -1,5 +1,151 @@
+// use ('E_Commerce');
+
+// db.Orders.insertMany([
+//     {
+//         "name": "KeyBoard",
+//         "price": 2500,
+//     },
+//     {
+//         "name": "Mouse",
+//         "price": 1500,
+//     },
+//     {
+//         "name": "Monitor",
+//         "price": 60000,
+//         "quality": "oled - 4K",
+//         "stock": 67,
+//     }
+// ]);
+
 use ('ecommerce');
-db.products.insertMany([
+
+db.Users.insertMany([
+    {
+        "name": "Aaliyah Turner",
+        "email": "aaliyah.turner@example.com",
+        "phone": "555-0101",
+        "address": { "street": "221 Oak St", "city": "Springfield", "state": "IL", "zip": "62704" },
+        "preferredContactMethod": "email",
+        "newsletterSubscribed": true,
+        "createdAt": new Date()
+    },
+    {
+        "name": "Benjamin Clark",
+        "email": "ben.clark@example.com",
+        "phone": "555-0123",
+        "address": { "street": "88 Maple Ave", "city": "Madison", "state": "WI", "zip": "53703" },
+        "preferredContactMethod": "phone",
+        "newsletterSubscribed": false,
+        "createdAt": new Date()
+    },
+    {
+        "name": "Camila Rivera",
+        "email": "camila.rivera@example.com",
+        "phone": "555-0145",
+        "address": { "street": "14 Birch Ln", "city": "Austin", "state": "TX", "zip": "78701" },
+        "preferredContactMethod": "email",
+        "newsletterSubscribed": true,
+        "createdAt": new Date()
+    },
+    {
+        "name": "David Patel",
+        "email": "david.patel@example.com",
+        "phone": "555-0167",
+        "address": { "street": "432 Pine St", "city": "Denver", "state": "CO", "zip": "80203" },
+        "preferredContactMethod": "phone",
+        "newsletterSubscribed": false,
+        "createdAt": new Date()
+    },
+    {
+        "name": "Elena Morgan",
+        "email": "elena.morgan@example.com",
+        "phone": "555-0189",
+        "address": { "street": "307 Cherry Blvd", "city": "Portland", "state": "OR", "zip": "97205" },
+        "preferredContactMethod": "email",
+        "newsletterSubscribed": true,
+        "createdAt": new Date()
+    }
+]);
+
+db.Orders.insertMany([
+    {
+        "orderNumber": "ORD1001",
+        "customerName": "Aaliyah Turner",
+        "customerEmail": "aaliyah.turner@example.com",
+        "items": [
+            { "productName": "Mechanical Keyboard", "quantity": 1, "price": 199 },
+            { "productName": "Wireless Mouse", "quantity": 1, "price": 99.99 }
+        ],
+        "totalAmount": 298.99,
+        "status": "Processing",
+        "orderDate": new Date(),
+        "shippingAddress": { "street": "221 Oak St", "city": "Springfield", "state": "IL", "zip": "62704" },
+        "paymentMethod": "Credit Card",
+        "createdAt": new Date()
+    },
+    {
+        "orderNumber": "ORD1002",
+        "customerName": "Benjamin Clark",
+        "customerEmail": "ben.clark@example.com",
+        "items": [
+            { "productName": "Coffee Maker", "quantity": 1, "price": 79.99 },
+            { "productName": "Blender", "quantity": 1, "price": 59.99 }
+        ],
+        "totalAmount": 139.98,
+        "status": "Shipped",
+        "orderDate": new Date(),
+        "shippingAddress": { "street": "88 Maple Ave", "city": "Madison", "state": "WI", "zip": "53703" },
+        "paymentMethod": "PayPal",
+        "createdAt": new Date()
+    },
+    {
+        "orderNumber": "ORD1003",
+        "customerName": "Camila Rivera",
+        "customerEmail": "camila.rivera@example.com",
+        "items": [
+            { "productName": "Yoga Mat", "quantity": 2, "price": 24.99 },
+            { "productName": "Resistance Bands", "quantity": 1, "price": 19.99 }
+        ],
+        "totalAmount": 69.97,
+        "status": "Delivered",
+        "orderDate": new Date(),
+        "shippingAddress": { "street": "14 Birch Ln", "city": "Austin", "state": "TX", "zip": "78701" },
+        "paymentMethod": "Debit Card",
+        "createdAt": new Date()
+    },
+    {
+        "orderNumber": "ORD1004",
+        "customerName": "David Patel",
+        "customerEmail": "david.patel@example.com",
+        "items": [
+            { "productName": "Smartwatch", "quantity": 1, "price": 219.99 },
+            { "productName": "Portable Charger", "quantity": 1, "price": 39.99 }
+        ],
+        "totalAmount": 259.98,
+        "status": "Processing",
+        "orderDate": new Date(),
+        "shippingAddress": { "street": "432 Pine St", "city": "Denver", "state": "CO", "zip": "80203" },
+        "paymentMethod": "Credit Card",
+        "createdAt": new Date()
+    },
+    {
+        "orderNumber": "ORD1005",
+        "customerName": "Elena Morgan",
+        "customerEmail": "elena.morgan@example.com",
+        "items": [
+            { "productName": "Air Purifier", "quantity": 1, "price": 179.99 },
+            { "productName": "Smart Light Bulb", "quantity": 3, "price": 22.99 }
+        ],
+        "totalAmount": 248.96,
+        "status": "Delivered",
+        "orderDate": new Date(),
+        "shippingAddress": { "street": "307 Cherry Blvd", "city": "Portland", "state": "OR", "zip": "97205" },
+        "paymentMethod": "Credit Card",
+        "createdAt": new Date()
+    }
+]);
+
+db.Products.insertMany([
     { "name": "Mechanical Keyboard", "price": 199, "category": "Electronics", "stock": 80, "ratings": 4.8, "tags": ["keyboard", "mechanical"], "createdAt": new Date() },
     { "name": "Wireless Mouse", "price": 99.99, "category": "Electronics", "stock": 150, "ratings": 4.5, "tags": ["mouse", "wireless"], "createdAt": new Date() },
     { "name": "Monitor", "price": 299.99, "category": "Electronics", "stock": 50, "ratings": 4.6, "tags": ["monitor", "lcd"], "createdAt": new Date() },
